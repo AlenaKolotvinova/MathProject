@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <title>Площадь треугольника</title>
+  </head>
+  <style>
+    button {
+        margin-top: 15px;
+        width: 200px;
+        cursor: pointer;
+    }
+    div {
+        margin: 10px;
+        text-align: center;
+        border: 2px solid black;
+        border-radius: 10px;
+    }
+    p {
+        font-family: Calibri;
+        font-size: 18px;
+        text-align: center;
+        font-weight: bold;
+        margin: 10px;
+    }
+    h2 {
+        text-align: center;
+        font-size: 30px;
+        margin: 20px;
+    }
+    nobr {
+      padding-right: 10px;
+      padding-left: 10px;
+    }
+    input {
+      margin: 10px;
+    }
+    body {
+      text-align: center;
+    }
+  </style>
+  <script>
+    function calculate1() {
+      var side = document.getElementById('input11').value;
+      var height = document.getElementById('input12').value;
+      document.getElementById('result11').textContent = "Результат: " + 0.5 * side * height;
+    }
+    
+    function calculate2() {
+      var side1 = document.getElementById('input21').value * 1;
+      var side2 = document.getElementById('input22').value * 1;
+      var side3 = document.getElementById('input23').value * 1;
+      var p = (side1 + side2 + side3) / 2;
+      document.getElementById('result2').textContent = "Результат: " + Math.sqrt(p * (p - side1) * (p - side2) * (p - side3));
+    }
+
+    function calculate3() {
+      var side1 = document.getElementById('input31').value;
+      var side2 = document.getElementById('input32').value;
+      var angle = document.getElementById('input33').value;
+      if (angle >= 180)
+        alert("Угол должен быть меньше 180 градусов!");
+      document.getElementById('result3').textContent = "Результат: " + 0.5 * side1 * side2 * Math.sin(angle * Math.PI / 180);
+    }
+  </script>
+  <body>
+    <h2>Площадь треугольника</h2>
+    <div>
+      <p>По стороне и высоте</p>
+      <nobr>Сторона:</nobr>
+      <input id="input11">
+      <nobr>Высота:</nobr>
+      <input id="input12"></br>
+      <button type="button" onclick="calculate1()">Рассчитать площадь</button>
+      <p id="result11">Результат:</p>
+    </div>
+    
+    <div>
+      <p>По трём сторонам</p>
+      <nobr>Сторона 1:</nobr>
+      <input id="input21">
+      <nobr>Сторона 2:</nobr>
+      <input id="input22">
+      <nobr>Сторона 3:</nobr>
+      <input id="input23"></br>
+      <button type="button" onclick="calculate2()">Рассчитать площадь</button>
+      <p id="result2">Результат:</p>
+    </div>
+
+    <div>
+      <p>По двум сторонам и синусу угла между ними</p>
+      <nobr>Сторона 1:</nobr>
+      <input id="input31">
+      <nobr>Сторона 2:</nobr>
+      <input id="input32">
+      <nobr>Угол:</nobr>
+      <input id="input33"></br>
+      <button type="button" onclick="calculate3()">Рассчитать площадь</button>
+      <p id="result3">Результат:</p>
+    </div>
+    <a href="../index.html">
+      <button type="button">Вернуться на главную</button>
+    </a>
+  </body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <title>Квадратичное уравнение</title>
+  </head>
+  <style>
+    button {
+        margin-top: 15px;
+        width: 200px;
+        cursor: pointer;
+    }
+    div {
+        margin: 10px;
+        text-align: center;
+        border: 2px solid black;
+        border-radius: 10px;
+    }
+    p {
+        font-family: Calibri;
+        font-size: 18px;
+        text-align: center;
+        font-weight: bold;
+        margin: 10px;
+    }
+    h2 {
+        text-align: center;
+        font-size: 30px;
+        margin: 20px;
+    }
+    nobr {
+      padding-right: 10px;
+      padding-left: 10px;
+    }
+    input {
+      margin: 10px;
+      width: 100px;
+    }
+    body {
+      text-align: center;
+    }
+  </style>
+  <script>
+    function calculate() {
+      var a = document.getElementById('input1').value;
+      var b = document.getElementById('input2').value;
+      var c = document.getElementById('input3').value;
+      var D = b*b - 4*a*c;
+      var res;
+      if (D > 0)
+        res = "x1 = " + ((-b + Math.sqrt(D)) / (2*a)) + ", x2 = " + ((-b - Math.sqrt(D)) / (2*a));
+      else if (D == 0)
+        res = "x = " + ((-b) / (2*a));
+      else
+        res = "нет корней";
+      document.getElementById('result1').textContent = "Результат: " + res;
+    }
+  </script>
+  <body>
+    <h2>Квадратное уравнение</h2>
+    <div>
+      <p>ax² + bx + c = 0</p>
+      <nobr>a:</nobr>
+      <input id="input1">
+      <nobr>b:</nobr>
+      <input id="input2">
+      <nobr>c:</nobr>
+      <input id="input3"></br>
+      <button type="button" onclick="calculate()">Рассчитать корни</button>
+      <p id="result1">Результат:</p>
+    </div>
+    <a href="../index.html">
+      <button type="button">Вернуться на главную</button>
+    </a>
+  </body>
+</html>
